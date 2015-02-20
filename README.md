@@ -20,8 +20,7 @@ $ composer require blizzard-galaxy/api-supervisor
 ## Usage
 
 ``` php
-$skeleton = new BlizzardGalaxy\ApiSupervisor();
-echo $skeleton->echoPhrase('Hello, League!');
+To be filled in.
 ```
 
 ## Testing
