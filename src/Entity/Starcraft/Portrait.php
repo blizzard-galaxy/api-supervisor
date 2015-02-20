@@ -181,6 +181,4 @@ class Portrait implements ApiSupervisorEntityInterface
 
         return $this;
     }
-
-
 }
