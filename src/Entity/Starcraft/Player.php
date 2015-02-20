@@ -4,6 +4,7 @@ namespace BlizzardGalaxy\ApiSupervisor\Entity\Starcraft;
 
 use BlizzardGalaxy\ApiSupervisor\Entity\Starcraft\Player\CampaignSummary;
 use BlizzardGalaxy\ApiSupervisor\Entity\Starcraft\Player\CareerSummary;
+use BlizzardGalaxy\ApiSupervisor\Entity\Starcraft\Player\Rewards;
 use BlizzardGalaxy\ApiSupervisor\Entity\Starcraft\Player\SeasonSummary;
 use BlizzardGalaxy\ApiSupervisor\Entity\Starcraft\Player\SwarmLevelSummary;
 use BlizzardGalaxy\ApiSupervisor\Test\Entity\ApiSupervisorEntityInterface;
@@ -104,6 +105,14 @@ class Player implements ApiSupervisorEntityInterface
      * @JMS\Type("BlizzardGalaxy\ApiSupervisor\Entity\Starcraft\Player\SeasonSummary")
      */
     protected $seasonSummary;
+
+    /**
+     * @var Rewards
+     *
+     * @JMS\SerializedName("rewards")
+     * @JMS\Type("BlizzardGalaxy\ApiSupervisor\Entity\Starcraft\Player\Rewards")
+     */
+    protected $rewards;
 
     /**
      * @return int
@@ -325,5 +334,23 @@ class Player implements ApiSupervisorEntityInterface
         return $this;
     }
 
+    /**
+     * @return Rewards
+     */
+    public function getRewards()
+    {
+        return $this->rewards;
+    }
 
+    /**
+     * @param Rewards $rewards
+     *
+     * @return $this
+     */
+    public function setRewards($rewards)
+    {
+        $this->rewards = $rewards;
+
+        return $this;
+    }
 }
