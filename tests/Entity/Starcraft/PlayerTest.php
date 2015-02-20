@@ -33,9 +33,9 @@ class PlayerTest extends AbstractSerializationTest
     protected function getExpectedObject()
     {
         $portrait = $this->getExpectedPortrait();
+        $careerSummary = $this->getExpectedCareerSummary();
 
         $player = new Player();
-
         $player
             ->setBlizzardId(2048419)
             ->setRealm(1)
@@ -43,7 +43,8 @@ class PlayerTest extends AbstractSerializationTest
             ->setClanName('Cegeka Guild')
             ->setClanTag('CGK')
             ->setProfilePath('/profile/2048419/1/LionHeart/')
-            ->setPortrait($portrait);
+            ->setPortrait($portrait)
+            ->setCareerSummary($careerSummary);
 
         return $player;
     }
@@ -73,6 +74,25 @@ class PlayerTest extends AbstractSerializationTest
             ->setUrl('http://media.blizzard.com/sc2/portraits/1-90.jpg');
 
         return $portrait;
+    }
+
+    /**
+     * @return Player\CareerSummary
+     */
+    private function getExpectedCareerSummary()
+    {
+        $careerSummary = new Player\CareerSummary();
+        $careerSummary
+            ->setPrimaryRace('TERRAN')
+            ->setTerranWins(0)
+            ->setProtossWins(0)
+            ->setZergWins(0)
+            ->setHighest1v1Rank('PLATINUM')
+            ->setHighestTeamRank('DIAMOND')
+            ->setSeasonTotalGames(0)
+            ->setCareerTotalGames(1676);
+
+        return $careerSummary;
     }
 
 }
