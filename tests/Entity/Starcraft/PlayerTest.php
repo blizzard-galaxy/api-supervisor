@@ -210,8 +210,7 @@ class PlayerTest extends AbstractSerializationTest
             ->setAchievementId(91475035554135)
             ->setCompletionDate(1410730581);
 
-        $earnedAchievements = [$earnedAchievementOne, $earnedAchievementTwo];
-
+        $earnedAchievements = array($earnedAchievementOne, $earnedAchievementTwo);
 
         $achievementSummary = new AchievementSummary();
         $achievementSummary
