@@ -62,6 +62,14 @@ class Player implements ApiSupervisorEntityInterface
     protected $profilePath;
 
     /**
+     * @var Portrait
+     *
+     * @JMS\SerializedName("portrait")
+     * @JMS\Type("BlizzardGalaxy\ApiSupervisor\Entity\Starcraft\Portrait")
+     */
+    protected $portrait;
+
+    /**
      * @return int
      */
     public function getBlizzardId()
@@ -177,6 +185,26 @@ class Player implements ApiSupervisorEntityInterface
     public function setProfilePath($profilePath)
     {
         $this->profilePath = $profilePath;
+
+        return $this;
+    }
+
+    /**
+     * @return Portrait
+     */
+    public function getPortrait()
+    {
+        return $this->portrait;
+    }
+
+    /**
+     * @param Portrait $portrait
+     *
+     * @return $this
+     */
+    public function setPortrait($portrait)
+    {
+        $this->portrait = $portrait;
 
         return $this;
     }
