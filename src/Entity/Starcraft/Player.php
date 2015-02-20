@@ -266,6 +266,4 @@ class Player implements ApiSupervisorEntityInterface
 
         return $this;
     }
-
-
 }
