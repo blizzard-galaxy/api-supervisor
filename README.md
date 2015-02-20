@@ -1,11 +1,11 @@
 # API Supervisor
 
-[![Latest Version](https://img.shields.io/github/release/thephpleague/:package_name.svg?style=flat-square)](https://github.com/thephpleague/:package_name/releases)
+[![Latest Version](https://img.shields.io/github/release/blizzard-galaxy/api-supervisor.svg?style=flat-square)](https://github.com/blizzard-galaxy/api-supervisor/releases)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Build Status](https://img.shields.io/travis/thephpleague/:package_name/master.svg?style=flat-square)](https://travis-ci.org/thephpleague/:package_name)
-[![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/thephpleague/:package_name.svg?style=flat-square)](https://scrutinizer-ci.com/g/thephpleague/:package_name/code-structure)
-[![Quality Score](https://img.shields.io/scrutinizer/g/thephpleague/:package_name.svg?style=flat-square)](https://scrutinizer-ci.com/g/thephpleague/:package_name)
-[![Total Downloads](https://img.shields.io/packagist/dt/league/:package_name.svg?style=flat-square)](https://packagist.org/packages/league/:package_name)
+[![Build Status](https://img.shields.io/travis/blizzard-galaxy/api-supervisor/master.svg?style=flat-square)](https://travis-ci.org/blizzard-galaxy/api-supervisor)
+[![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/blizzard-galaxy/api-supervisor.svg?style=flat-square)](https://scrutinizer-ci.com/g/blizzard-galaxy/api-supervisor/code-structure)
+[![Quality Score](https://img.shields.io/scrutinizer/g/blizzard-galaxy/api-supervisor.svg?style=flat-square)](https://scrutinizer-ci.com/g/blizzard-galaxy/api-supervisor)
+[![Total Downloads](https://img.shields.io/packagist/dt/league/api-supervisor.svg?style=flat-square)](https://packagist.org/packages/blizzard-galaxy/api-supervisor)
 
 This package is a PHP integration layer for the Blizzard API. It contains methods for easily consuming the API and retrieving the information into dedicated entities.
 
