@@ -2,6 +2,7 @@
 
 namespace BlizzardGalaxy\ApiSupervisor\Entity\Starcraft;
 
+use BlizzardGalaxy\ApiSupervisor\Entity\Starcraft\Player\CareerSummary;
 use BlizzardGalaxy\ApiSupervisor\Test\Entity\ApiSupervisorEntityInterface;
 use JMS\Serializer\Annotation as JMS;
 
@@ -68,6 +69,14 @@ class Player implements ApiSupervisorEntityInterface
      * @JMS\Type("BlizzardGalaxy\ApiSupervisor\Entity\Starcraft\Portrait")
      */
     protected $portrait;
+
+    /**
+     * @var CareerSummary
+     *
+     * @JMS\SerializedName("career")
+     * @JMS\Type("BlizzardGalaxy\ApiSupervisor\Entity\Starcraft\Player\CareerSummary")
+     */
+    protected $careerSummary;
 
     /**
      * @return int
@@ -205,6 +214,26 @@ class Player implements ApiSupervisorEntityInterface
     public function setPortrait($portrait)
     {
         $this->portrait = $portrait;
+
+        return $this;
+    }
+
+    /**
+     * @return CareerSummary
+     */
+    public function getCareerSummary()
+    {
+        return $this->careerSummary;
+    }
+
+    /**
+     * @param CareerSummary $careerSummary
+     *
+     * @return $this
+     */
+    public function setCareerSummary($careerSummary)
+    {
+        $this->careerSummary = $careerSummary;
 
         return $this;
     }
