@@ -34,7 +34,12 @@ class PlayerTest extends AbstractSerializationTest
         $player = new Player();
 
         $player
-            ->setBlizzardId(2048419);
+            ->setBlizzardId(2048419)
+            ->setRealm(1)
+            ->setDisplayName('LionHeart')
+            ->setClanName('Cegeka Guild')
+            ->setClanTag('CGK')
+            ->setProfilePath('/profile/2048419/1/LionHeart/');
 
         return $player;
     }
