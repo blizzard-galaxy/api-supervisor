@@ -14,13 +14,13 @@ This package is a PHP integration layer for the Blizzard API. It contains method
 Via Composer
 
 ``` bash
-$ composer require league/:package_name
+$ composer require blizzard-galaxy/api-supervisor
 ```
 
 ## Usage
 
 ``` php
-$skeleton = new League\Skeleton();
+$skeleton = new BlizzardGalaxy\ApiSupervisor();
 echo $skeleton->echoPhrase('Hello, League!');
 ```
 
