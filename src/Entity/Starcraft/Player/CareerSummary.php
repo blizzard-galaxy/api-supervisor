@@ -7,7 +7,8 @@ use BlizzardGalaxy\ApiSupervisor\Test\Entity\ApiSupervisorEntityInterface;
 use JMS\Serializer\Annotation as JMS;
 
 /**
- * Class CareerSummary
+ * Holds information regarding the career summary of a player, including
+ * race, number of wins and total number of games.
  *
  * @package BlizzardGalaxy\ApiSupervisor\Entity\Starcraft\Player
  * @author  Petre Pătrașc <petre@dreamlabs.ro>

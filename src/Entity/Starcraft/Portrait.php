@@ -7,7 +7,7 @@ use BlizzardGalaxy\ApiSupervisor\Test\Entity\ApiSupervisorEntityInterface;
 use JMS\Serializer\Annotation as JMS;
 
 /**
- * Class Portrait
+ * Holds information regarding the portrait that a player currently has active.
  *
  * @package BlizzardGalaxy\ApiSupervisor\Entity\Starcraft
  * @author  Petre Pătrașc <petre@dreamlabs.ro>

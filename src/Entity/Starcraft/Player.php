@@ -3,6 +3,7 @@
 namespace BlizzardGalaxy\ApiSupervisor\Entity\Starcraft;
 
 use BlizzardGalaxy\ApiSupervisor\Entity\Starcraft\Player\CareerSummary;
+use BlizzardGalaxy\ApiSupervisor\Entity\Starcraft\Player\SwarmLevelSummary;
 use BlizzardGalaxy\ApiSupervisor\Test\Entity\ApiSupervisorEntityInterface;
 use JMS\Serializer\Annotation as JMS;
 
@@ -77,6 +78,14 @@ class Player implements ApiSupervisorEntityInterface
      * @JMS\Type("BlizzardGalaxy\ApiSupervisor\Entity\Starcraft\Player\CareerSummary")
      */
     protected $careerSummary;
+
+    /**
+     * @var SwarmLevelSummary
+     *
+     * @JMS\SerializedName("swarmLevels")
+     * @JMS\Type("BlizzardGalaxy\ApiSupervisor\Entity\Starcraft\Player\SwarmLevelSummary")
+     */
+    protected $swarmLevelSummary;
 
     /**
      * @return int
@@ -234,6 +243,26 @@ class Player implements ApiSupervisorEntityInterface
     public function setCareerSummary($careerSummary)
     {
         $this->careerSummary = $careerSummary;
+
+        return $this;
+    }
+
+    /**
+     * @return SwarmLevelSummary
+     */
+    public function getSwarmLevelSummary()
+    {
+        return $this->swarmLevelSummary;
+    }
+
+    /**
+     * @param SwarmLevelSummary $swarmLevelSummary
+     *
+     * @return $this
+     */
+    public function setSwarmLevelSummary($swarmLevelSummary)
+    {
+        $this->swarmLevelSummary = $swarmLevelSummary;
 
         return $this;
     }

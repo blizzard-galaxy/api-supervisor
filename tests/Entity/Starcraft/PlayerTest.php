@@ -34,6 +34,7 @@ class PlayerTest extends AbstractSerializationTest
     {
         $portrait = $this->getExpectedPortrait();
         $careerSummary = $this->getExpectedCareerSummary();
+        $swarmLevelSummary = $this->getExpectedSwarmLevelSummary();
 
         $player = new Player();
         $player
@@ -44,7 +45,8 @@ class PlayerTest extends AbstractSerializationTest
             ->setClanTag('CGK')
             ->setProfilePath('/profile/2048419/1/LionHeart/')
             ->setPortrait($portrait)
-            ->setCareerSummary($careerSummary);
+            ->setCareerSummary($careerSummary)
+            ->setSwarmLevelSummary($swarmLevelSummary);
 
         return $player;
     }
@@ -93,6 +95,39 @@ class PlayerTest extends AbstractSerializationTest
             ->setCareerTotalGames(1676);
 
         return $careerSummary;
+    }
+
+    /**
+     * @return Player\SwarmLevelSummary
+     */
+    private function getExpectedSwarmLevelSummary()
+    {
+        $terranSwarmLevel = new Player\SwarmLevel();
+        $terranSwarmLevel
+            ->setLevel(35)
+            ->setTotalLevelXp(5850000)
+            ->setCurrentLevelXp(-1);
+
+        $zergSwarmLevel = new Player\SwarmLevel();
+        $zergSwarmLevel
+            ->setLevel(21)
+            ->setTotalLevelXp(192500)
+            ->setCurrentLevelXp(56725);
+
+        $protossSwarmLevel = new Player\SwarmLevel();
+        $protossSwarmLevel
+            ->setLevel(6)
+            ->setTotalLevelXp(135000)
+            ->setCurrentLevelXp(60367);
+
+        $swarmLevelSummary = new Player\SwarmLevelSummary();
+        $swarmLevelSummary
+            ->setOverallLevel(62)
+            ->setTerranOverview($terranSwarmLevel)
+            ->setProtossOverview($protossSwarmLevel)
+            ->setZergOverview($zergSwarmLevel);
+
+        return $swarmLevelSummary;
     }
 
 }
