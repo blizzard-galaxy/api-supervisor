@@ -2,6 +2,7 @@
 
 namespace BlizzardGalaxy\ApiSupervisor\Test\Entity\Starcraft;
 
+use BlizzardGalaxy\ApiSupervisor\Entity\Starcraft\Portrait;
 use BlizzardGalaxy\ApiSupervisor\Test\Entity\AbstractSerializationTest;
 use BlizzardGalaxy\ApiSupervisor\Test\Entity\ApiSupervisorEntityInterface;
 use BlizzardGalaxy\ApiSupervisor\Entity\Starcraft\Player;
@@ -31,6 +32,8 @@ class PlayerTest extends AbstractSerializationTest
      */
     protected function getExpectedObject()
     {
+        $portrait = $this->getExpectedPortrait();
+
         $player = new Player();
 
         $player
@@ -39,7 +42,8 @@ class PlayerTest extends AbstractSerializationTest
             ->setDisplayName('LionHeart')
             ->setClanName('Cegeka Guild')
             ->setClanTag('CGK')
-            ->setProfilePath('/profile/2048419/1/LionHeart/');
+            ->setProfilePath('/profile/2048419/1/LionHeart/')
+            ->setPortrait($portrait);
 
         return $player;
     }
@@ -52,6 +56,23 @@ class PlayerTest extends AbstractSerializationTest
     protected function getObjectClassPath()
     {
         return 'BlizzardGalaxy\ApiSupervisor\Entity\Starcraft\Player';
+    }
+
+    /**
+     * @return Portrait
+     */
+    private function getExpectedPortrait()
+    {
+        $portrait = new Portrait();
+        $portrait
+            ->setXCoordinate(-270)
+            ->setYCoordinate(-180)
+            ->setHeight(90)
+            ->setWidth(90)
+            ->setOffset(15)
+            ->setUrl('http://media.blizzard.com/sc2/portraits/1-90.jpg');
+
+        return $portrait;
     }
 
 }
