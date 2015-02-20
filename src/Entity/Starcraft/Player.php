@@ -4,6 +4,7 @@ namespace BlizzardGalaxy\ApiSupervisor\Entity\Starcraft;
 
 use BlizzardGalaxy\ApiSupervisor\Entity\Starcraft\Player\CampaignSummary;
 use BlizzardGalaxy\ApiSupervisor\Entity\Starcraft\Player\CareerSummary;
+use BlizzardGalaxy\ApiSupervisor\Entity\Starcraft\Player\SeasonSummary;
 use BlizzardGalaxy\ApiSupervisor\Entity\Starcraft\Player\SwarmLevelSummary;
 use BlizzardGalaxy\ApiSupervisor\Test\Entity\ApiSupervisorEntityInterface;
 use JMS\Serializer\Annotation as JMS;
@@ -95,6 +96,14 @@ class Player implements ApiSupervisorEntityInterface
      * @JMS\Type("BlizzardGalaxy\ApiSupervisor\Entity\Starcraft\Player\CampaignSummary")
      */
     protected $campaignSummary;
+
+    /**
+     * @var SeasonSummary
+     *
+     * @JMS\SerializedName("season")
+     * @JMS\Type("BlizzardGalaxy\ApiSupervisor\Entity\Starcraft\Player\SeasonSummary")
+     */
+    protected $seasonSummary;
 
     /**
      * @return int
@@ -292,6 +301,26 @@ class Player implements ApiSupervisorEntityInterface
     public function setCampaignSummary($campaignSummary)
     {
         $this->campaignSummary = $campaignSummary;
+
+        return $this;
+    }
+
+    /**
+     * @return SeasonSummary
+     */
+    public function getSeasonSummary()
+    {
+        return $this->seasonSummary;
+    }
+
+    /**
+     * @param SeasonSummary $seasonSummary
+     *
+     * @return $this
+     */
+    public function setSeasonSummary($seasonSummary)
+    {
+        $this->seasonSummary = $seasonSummary;
 
         return $this;
     }

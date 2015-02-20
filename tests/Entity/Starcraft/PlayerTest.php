@@ -36,6 +36,7 @@ class PlayerTest extends AbstractSerializationTest
         $careerSummary = $this->getExpectedCareerSummary();
         $swarmLevelSummary = $this->getExpectedSwarmLevelSummary();
         $campaignSummary = $this->getExpectedCampaignSummary();
+        $seasonSummary = $this->getExpectedSeasonSummary();
 
         $player = new Player();
         $player
@@ -48,7 +49,8 @@ class PlayerTest extends AbstractSerializationTest
             ->setPortrait($portrait)
             ->setCareerSummary($careerSummary)
             ->setSwarmLevelSummary($swarmLevelSummary)
-            ->setCampaignSummary($campaignSummary);
+            ->setCampaignSummary($campaignSummary)
+            ->setSeasonSummary($seasonSummary);
 
         return $player;
     }
@@ -143,6 +145,21 @@ class PlayerTest extends AbstractSerializationTest
             ->setHeartOfTheSwarmHighestDifficulty("HARD");
 
         return $campaignSummary;
+    }
+
+    /**
+     * @return Player\SeasonSummary
+     */
+    private function getExpectedSeasonSummary()
+    {
+        $seasonSummary = new Player\SeasonSummary();
+        $seasonSummary
+            ->setSeasonId(21)
+            ->setSeasonNumber(1)
+            ->setSeasonYear(2015)
+            ->setTotalGamesPlayedThisSeason(0);
+
+        return $seasonSummary;
     }
 
 }
