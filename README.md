@@ -6,6 +6,7 @@
 [![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/blizzard-galaxy/api-supervisor.svg?style=flat-square)](https://scrutinizer-ci.com/g/blizzard-galaxy/api-supervisor/code-structure)
 [![Quality Score](https://img.shields.io/scrutinizer/g/blizzard-galaxy/api-supervisor.svg?style=flat-square)](https://scrutinizer-ci.com/g/blizzard-galaxy/api-supervisor)
 [![Total Downloads](https://img.shields.io/packagist/dt/blizzard-galaxy/api-supervisor.svg?style=flat-square)](https://packagist.org/packages/blizzard-galaxy/api-supervisor)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/e5fb08b4-b0f6-4c28-b86a-dee5c198f4d1/mini.png)](https://insight.sensiolabs.com/projects/e5fb08b4-b0f6-4c28-b86a-dee5c198f4d1)
 
 This package is a PHP integration layer for the Blizzard API. It contains methods for easily consuming the API and retrieving the information into dedicated entities.
 
