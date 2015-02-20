@@ -23,10 +23,6 @@ abstract class AbstractClient
         $this
             ->setApiKey($apiKey)
             ->setRegion($region);
-
-        if (!in_array($region, Region::getAllRegionsAsArray())) {
-            throw new RegionException();
-        }
     }
 
     /**
@@ -81,9 +77,14 @@ abstract class AbstractClient
      * @param string $region
      *
      * @return $this
+     * @throws RegionException
      */
     public function setRegion($region)
     {
+        if (!in_array($region, Region::getAllRegionsAsArray())) {
+            throw new RegionException();
+        }
+
         $this->region = $region;
 
         return $this;
