@@ -2,8 +2,7 @@
 
 namespace BlizzardGalaxy\ApiSupervisor\Test\Entity;
 
-use Doctrine\Common\Annotations\AnnotationRegistry;
-use JMS\Serializer\SerializerBuilder;
+use BlizzardGalaxy\ApiSupervisor\Service\DataSerializer;
 
 /**
  * Base class to be extended by test classes where entity serialization needs to be checked.
@@ -56,10 +55,7 @@ abstract class AbstractSerializationTest extends \PHPUnit_Framework_TestCase
      */
     protected function getSerializerInstance()
     {
-        $jmsPath = __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . "/vendor/jms/serializer/src";
-        AnnotationRegistry::registerAutoloadNamespace('JMS\Serializer\Annotation', $jmsPath);
-
-        return SerializerBuilder::create()->build();
+        return DataSerializer::getFreshInstance();
     }
 
     /**
