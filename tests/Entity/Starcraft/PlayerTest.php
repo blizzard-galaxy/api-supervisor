@@ -35,6 +35,7 @@ class PlayerTest extends AbstractSerializationTest
         $portrait = $this->getExpectedPortrait();
         $careerSummary = $this->getExpectedCareerSummary();
         $swarmLevelSummary = $this->getExpectedSwarmLevelSummary();
+        $campaignSummary = $this->getExpectedCampaignSummary();
 
         $player = new Player();
         $player
@@ -46,7 +47,8 @@ class PlayerTest extends AbstractSerializationTest
             ->setProfilePath('/profile/2048419/1/LionHeart/')
             ->setPortrait($portrait)
             ->setCareerSummary($careerSummary)
-            ->setSwarmLevelSummary($swarmLevelSummary);
+            ->setSwarmLevelSummary($swarmLevelSummary)
+            ->setCampaignSummary($campaignSummary);
 
         return $player;
     }
@@ -128,6 +130,19 @@ class PlayerTest extends AbstractSerializationTest
             ->setZergOverview($zergSwarmLevel);
 
         return $swarmLevelSummary;
+    }
+
+    /**
+     * @return Player\CampaignSummary
+     */
+    private function getExpectedCampaignSummary()
+    {
+        $campaignSummary = new Player\CampaignSummary();
+        $campaignSummary
+            ->setWingsOfLibertyHighestDifficulty("CASUAL")
+            ->setHeartOfTheSwarmHighestDifficulty("HARD");
+
+        return $campaignSummary;
     }
 
 }

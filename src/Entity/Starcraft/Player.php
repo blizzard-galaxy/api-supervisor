@@ -2,6 +2,7 @@
 
 namespace BlizzardGalaxy\ApiSupervisor\Entity\Starcraft;
 
+use BlizzardGalaxy\ApiSupervisor\Entity\Starcraft\Player\CampaignSummary;
 use BlizzardGalaxy\ApiSupervisor\Entity\Starcraft\Player\CareerSummary;
 use BlizzardGalaxy\ApiSupervisor\Entity\Starcraft\Player\SwarmLevelSummary;
 use BlizzardGalaxy\ApiSupervisor\Test\Entity\ApiSupervisorEntityInterface;
@@ -86,6 +87,14 @@ class Player implements ApiSupervisorEntityInterface
      * @JMS\Type("BlizzardGalaxy\ApiSupervisor\Entity\Starcraft\Player\SwarmLevelSummary")
      */
     protected $swarmLevelSummary;
+
+    /**
+     * @var CampaignSummary
+     *
+     * @JMS\SerializedName("campaign")
+     * @JMS\Type("BlizzardGalaxy\ApiSupervisor\Entity\Starcraft\Player\CampaignSummary")
+     */
+    protected $campaignSummary;
 
     /**
      * @return int
@@ -266,4 +275,26 @@ class Player implements ApiSupervisorEntityInterface
 
         return $this;
     }
+
+    /**
+     * @return CampaignSummary
+     */
+    public function getCampaignSummary()
+    {
+        return $this->campaignSummary;
+    }
+
+    /**
+     * @param CampaignSummary $campaignSummary
+     *
+     * @return $this
+     */
+    public function setCampaignSummary($campaignSummary)
+    {
+        $this->campaignSummary = $campaignSummary;
+
+        return $this;
+    }
+
+
 }
