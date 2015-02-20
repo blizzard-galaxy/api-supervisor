@@ -24,7 +24,7 @@ class Player implements ApiSupervisorEntityInterface
      * @JMS\SerializedName("id")
      * @JMS\Type("integer")
      */
-    protected $blizzardId;
+    protected $id;
 
     /**
      * @var int
@@ -115,21 +115,29 @@ class Player implements ApiSupervisorEntityInterface
     protected $rewards;
 
     /**
+     * @var AchievementSummary
+     *
+     * @JMS\SerializedName("achievements")
+     * @JMS\Type("BlizzardGalaxy\ApiSupervisor\Entity\Starcraft\AchievementSummary")
+     */
+    protected $achievementSummary;
+
+    /**
      * @return int
      */
-    public function getBlizzardId()
+    public function getId()
     {
-        return $this->blizzardId;
+        return $this->id;
     }
 
     /**
-     * @param int $blizzardId
+     * @param int $id
      *
      * @return $this
      */
-    public function setBlizzardId($blizzardId)
+    public function setId($id)
     {
-        $this->blizzardId = $blizzardId;
+        $this->id = $id;
 
         return $this;
     }
@@ -353,4 +361,26 @@ class Player implements ApiSupervisorEntityInterface
 
         return $this;
     }
+
+    /**
+     * @return AchievementSummary
+     */
+    public function getAchievementSummary()
+    {
+        return $this->achievementSummary;
+    }
+
+    /**
+     * @param AchievementSummary $achievementSummary
+     *
+     * @return $this
+     */
+    public function setAchievementSummary($achievementSummary)
+    {
+        $this->achievementSummary = $achievementSummary;
+
+        return $this;
+    }
+
+
 }

@@ -7,7 +7,8 @@ use BlizzardGalaxy\ApiSupervisor\Test\Entity\ApiSupervisorEntityInterface;
 use JMS\Serializer\Annotation as JMS;
 
 /**
- * Class Rewards
+ * Contains information on the rewards that the user has chosen
+ * and those that have been earned.
  *
  * @package BlizzardGalaxy\ApiSupervisor\Entity\Starcraft\Player
  * @author  Petre Pătrașc <petre@dreamlabs.ro>
