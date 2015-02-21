@@ -83,5 +83,9 @@ class UrlBuilder
         if (0 === count($params)) {
             throw new UrlBuilderException("Empty parameter list has been provided.");
         }
+
+        if (!$this->getEnumValidator()->localeIsAssignedToCorrectRegion($region, $locale)) {
+            throw new UrlBuilderException("Locale is not assigned to this region");
+        }
     }
 }

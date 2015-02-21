@@ -54,7 +54,8 @@ class UrlBuilderTest extends \PHPUnit_Framework_TestCase
     public function urlResultDataProvider()
     {
         return array(
-            array('https://eu.api.battle.net/sc2/profile/1212/1/Test/?locale=en_GB&callback=te&apikey=testApiKey', Enum\Region::EUROPE, Enum\Game::STARCRAFT, Enum\Method\StarcraftApiMethod::PLAYER_PROFILE, array(1212, 1, 'Test'), 'testApiKey', Enum\Locale::EN_GB, 'te')
+            array('https://eu.api.battle.net/sc2/profile/1212/1/Test/?locale=en_GB&callback=te&apikey=testApiKey', Enum\Region::EUROPE, Enum\Game::STARCRAFT, Enum\Method\StarcraftApiMethod::PLAYER_PROFILE, array(1212, 1, 'Test'), 'testApiKey', Enum\Locale::EN_GB, 'te'),
+            array('https://eu.api.battle.net/sc2/profile/1212/1/Test/?locale=en_GB&apikey=testApiKey', Enum\Region::EUROPE, Enum\Game::STARCRAFT, Enum\Method\StarcraftApiMethod::PLAYER_PROFILE, array(1212, 1, 'Test'), 'testApiKey', Enum\Locale::EN_GB, null),
         );
     }
 
@@ -68,6 +69,7 @@ class UrlBuilderTest extends \PHPUnit_Framework_TestCase
             array(Enum\Region::EUROPE, 'sc', array('test'), Enum\Locale::EN_GB),
             array(Enum\Region::EUROPE, Enum\Game::STARCRAFT, array(), Enum\Locale::EN_GB),
             array(Enum\Region::EUROPE, Enum\Game::STARCRAFT, array('test'), 'en_gb'),
+            array(Enum\Region::EUROPE, Enum\Game::STARCRAFT, array('test'), Enum\Locale::EN_US),
         );
     }
 

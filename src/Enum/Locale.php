@@ -20,6 +20,11 @@ class Locale implements ArrayEnumInterface
     const PL_PL = "pl_PL";
     const PT_PT = "pt_PT";
     const RU_RU = "ru_RU";
+    const KO_KR = 'ko_KR';
+    const EN_US = 'en_US';
+    const ZH_TW = 'zh_TW';
+    const PT_BR = 'pt_BR';
+    const ES_MX = 'es_MX';
 
     /**
      * Get all of the entries as an array.
@@ -37,6 +42,11 @@ class Locale implements ArrayEnumInterface
             self::PL_PL,
             self::PT_PT,
             self::RU_RU,
+            self::KO_KR,
+            self::EN_US,
+            self::ZH_TW,
+            self::PT_BR,
+            self::ES_MX,
         );
     }
 }
