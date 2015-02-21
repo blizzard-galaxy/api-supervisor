@@ -49,18 +49,24 @@ class UrlBuilderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     *
+     * @return array
      */
     public function urlResultDataProvider()
     {
         return array(
             array('https://eu.api.battle.net/sc2/profile/1212/1/Test/?locale=en_GB&callback=te&apikey=testApiKey', Enum\Region::EUROPE, Enum\Game::STARCRAFT, Enum\Method\StarcraftApiMethod::PLAYER_PROFILE, array(1212, 1, 'Test'), 'testApiKey', Enum\Locale::EN_GB, 'te'),
             array('https://eu.api.battle.net/sc2/profile/1212/1/Test/?locale=en_GB&apikey=testApiKey', Enum\Region::EUROPE, Enum\Game::STARCRAFT, Enum\Method\StarcraftApiMethod::PLAYER_PROFILE, array(1212, 1, 'Test'), 'testApiKey', Enum\Locale::EN_GB, null),
+            array('https://us.api.battle.net/sc2/profile/1212/1/Test/?locale=en_US&apikey=testApiKey', Enum\Region::UNITED_STATES, Enum\Game::STARCRAFT, Enum\Method\StarcraftApiMethod::PLAYER_PROFILE, array(1212, 1, 'Test'), 'testApiKey', Enum\Locale::EN_US, null),
+            array('https://tw.api.battle.net/sc2/profile/1212/1/Test/?locale=zh_TW&apikey=testApiKey', Enum\Region::TAIWAN, Enum\Game::STARCRAFT, Enum\Method\StarcraftApiMethod::PLAYER_PROFILE, array(1212, 1, 'Test'), 'testApiKey', Enum\Locale::ZH_TW, null),
+            array('https://sea.api.battle.net/sc2/profile/1212/1/Test/?locale=en_US&apikey=testApiKey', Enum\Region::SOUTH_EAST_ASIA, Enum\Game::STARCRAFT, Enum\Method\StarcraftApiMethod::PLAYER_PROFILE, array(1212, 1, 'Test'), 'testApiKey', Enum\Locale::EN_US, null),
+            array('https://kr.api.battle.net/sc2/profile/1212/1/Test/?locale=ko_KR&apikey=testApiKey', Enum\Region::KOREA, Enum\Game::STARCRAFT, Enum\Method\StarcraftApiMethod::PLAYER_PROFILE, array(1212, 1, 'Test'), 'testApiKey', Enum\Locale::KO_KR, null),
+            array('https://eu.api.battle.net/sc2/profile/1212/1/Test/?locale=it_IT&apikey=testApiKey', Enum\Region::EUROPE, Enum\Game::STARCRAFT, Enum\Method\StarcraftApiMethod::PLAYER_PROFILE, array(1212, 1, 'Test'), 'testApiKey', Enum\Locale::IT_IT, null),
+            array('https://eu.api.battle.net/sc2/profile/1212/1/Test/?locale=en_GB&apikey=testApiKey', Enum\Region::EUROPE, Enum\Game::STARCRAFT, Enum\Method\StarcraftApiMethod::PLAYER_PROFILE, array(1212, 1, 'Test'), 'testApiKey', Enum\Locale::EN_GB, null),
         );
     }
 
     /**
-     *
+     * @return array
      */
     public function urlInvalidParameter()
     {

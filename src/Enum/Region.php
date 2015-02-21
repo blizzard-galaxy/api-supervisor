@@ -16,7 +16,7 @@ class Region implements ArrayEnumInterface
     const KOREA = 'kr';
     const SOUTH_EAST_ASIA = 'sea';
     const TAIWAN = 'tw';
-    const UNITED_STATES = 'usa';
+    const UNITED_STATES = 'us';
 
     /**
      * Retrieve all of the regions as an array.
