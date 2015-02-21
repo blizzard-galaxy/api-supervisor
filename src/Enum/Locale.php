@@ -33,7 +33,7 @@ class Locale implements ArrayEnumInterface
      */
     public static function getAllAsArray()
     {
-        return array(
+        return [
             self::EN_GB,
             self::DE_DE,
             self::ES_ES,
@@ -47,6 +47,6 @@ class Locale implements ArrayEnumInterface
             self::ZH_TW,
             self::PT_BR,
             self::ES_MX,
-        );
+        ];
     }
 }

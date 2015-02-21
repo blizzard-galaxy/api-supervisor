@@ -22,8 +22,8 @@ class StarcraftApiMethod implements ArrayEnumInterface
      */
     public static function getAllAsArray()
     {
-        return array(
+        return [
             self::PLAYER_PROFILE,
-        );
+        ];
     }
 }

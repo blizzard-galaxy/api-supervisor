@@ -22,9 +22,9 @@ class Game implements ArrayEnumInterface
      */
     public static function getAllAsArray()
     {
-        return array(
+        return [
             self::STARCRAFT,
             self::WORLD_OF_WARCRAFT,
-        );
+        ];
     }
 }

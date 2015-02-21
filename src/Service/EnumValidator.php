@@ -20,7 +20,7 @@ class EnumValidator
      *
      * @return bool
      */
-    public function enumValueIsInArray($value = '', $array = array())
+    public function enumValueIsInArray($value = '', $array = [])
     {
         return in_array($value, $array);
     }
@@ -35,8 +35,8 @@ class EnumValidator
      */
     public function localeIsAssignedToCorrectRegion($region, $locale)
     {
-        $associations = array(
-            Region::EUROPE          => array(
+        $associations = [
+            Region::EUROPE          => [
                 Locale::EN_GB,
                 Locale::DE_DE,
                 Locale::ES_ES,
@@ -45,22 +45,22 @@ class EnumValidator
                 Locale::PL_PL,
                 Locale::PT_PT,
                 Locale::RU_RU,
-            ),
-            Region::KOREA           => array(
+            ],
+            Region::KOREA           => [
                 Locale::KO_KR,
-            ),
-            Region::SOUTH_EAST_ASIA => array(
+            ],
+            Region::SOUTH_EAST_ASIA => [
                 Locale::EN_US,
-            ),
-            Region::TAIWAN          => array(
+            ],
+            Region::TAIWAN          => [
                 Locale::ZH_TW,
-            ),
-            Region::UNITED_STATES   => array(
+            ],
+            Region::UNITED_STATES   => [
                 Locale::EN_US,
                 Locale::PT_BR,
                 Locale::ES_MX,
-            )
-        );
+            ]
+        ];
 
         return in_array($locale, $associations[$region]);
     }

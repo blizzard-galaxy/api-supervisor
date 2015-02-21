@@ -21,7 +21,7 @@ class Rewards implements ApiSupervisorEntityInterface
      * @JMS\SerializedName("selected")
      * @JMS\Type("array<integer>")
      */
-    protected $selected = array();
+    protected $selected = [];
 
     /**
      * @var array
@@ -29,7 +29,7 @@ class Rewards implements ApiSupervisorEntityInterface
      * @JMS\SerializedName("earned")
      * @JMS\Type("array<integer>")
      */
-    protected $earned = array();
+    protected $earned = [];
 
     /**
      * @return array

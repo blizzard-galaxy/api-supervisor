@@ -25,12 +25,12 @@ class Region implements ArrayEnumInterface
      */
     public static function getAllAsArray()
     {
-        return array(
+        return [
             self::EUROPE,
             self::KOREA,
             self::SOUTH_EAST_ASIA,
             self::TAIWAN,
             self::UNITED_STATES,
-        );
+        ];
     }
 }
