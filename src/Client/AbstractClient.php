@@ -46,6 +46,17 @@ abstract class AbstractClient
     protected $apiKey;
 
     /**
+     * Get the short code associated to the game for URL
+     * construction. (i.e. Starcraft II is sc2)
+     *
+     * Please use the enums for the game in order to pass
+     * validation.
+     *
+     * @return string
+     */
+    abstract public function getGameShortCode();
+
+    /**
      * @return string
      */
     public function getLocale()

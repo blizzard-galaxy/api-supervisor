@@ -3,6 +3,7 @@
 
 namespace BlizzardGalaxy\ApiSupervisor\Client;
 
+use BlizzardGalaxy\ApiSupervisor\Enum\Game;
 use GuzzleHttp\Client;
 use BlizzardGalaxy\ApiSupervisor\Enum\Region;
 use BlizzardGalaxy\ApiSupervisor\Exception\RegionException;
@@ -17,7 +18,21 @@ use BlizzardGalaxy\ApiSupervisor\Exception\RegionException;
  */
 class StarcraftClient extends AbstractClient
 {
-    public function getPlayerProfile($playerId, $playerName, $playerRegion = 1)
+    /**
+     * Get the short code associated to the game for URL
+     * construction. (i.e. Starcraft II is sc2)
+     *
+     * Please use the enums for the game in order to pass
+     * validation.
+     *
+     * @return string
+     */
+    public function getGameShortCode()
+    {
+        return Game::STARCRAFT;
+    }
+
+    public function getPlayerProfile($playerId, $playerName, $region = null, $locale = null, $callback = null, $playerRegion = 1)
     {
         $guzzleClient = new Client();
 
