@@ -5,6 +5,7 @@ namespace BlizzardGalaxy\ApiSupervisor\Test\Service;
 
 
 use BlizzardGalaxy\ApiSupervisor\Enum;
+use BlizzardGalaxy\ApiSupervisor\Exception\UrlBuilderException;
 use BlizzardGalaxy\ApiSupervisor\Service\UrlBuilder;
 
 class UrlBuilderTest extends \PHPUnit_Framework_TestCase
@@ -33,9 +34,18 @@ class UrlBuilderTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expectedResult, $actualResponse, 'The URL generated does not match the expected response');
     }
 
-    public function testBuildWhenParametersAreInvalid()
+    /**
+     * @param $region
+     * @param $game
+     * @param $params
+     * @param $locale
+     *
+     * @expectedException \BlizzardGalaxy\ApiSupervisor\Exception\UrlBuilderException
+     * @dataProvider urlInvalidParameter
+     */
+    public function testBuildWhenParametersAreInvalid($region, $game, $params, $locale)
     {
-        $this->markTestIncomplete('Need to implement');
+        $this->getUrlBuilder()->build($region, $game, 'test', $params, 'testKey', $locale, null, $protocol = 'https');
     }
 
     /**
@@ -45,6 +55,19 @@ class UrlBuilderTest extends \PHPUnit_Framework_TestCase
     {
         return array(
             array('https://eu.api.battle.net/sc2/profile/1212/1/Test/?locale=en_GB&callback=te&apikey=testApiKey', Enum\Region::EUROPE, Enum\Game::STARCRAFT, Enum\Method\StarcraftApiMethod::PLAYER_PROFILE, array(1212, 1, 'Test'), 'testApiKey', Enum\Locale::EN_GB, 'te')
+        );
+    }
+
+    /**
+     *
+     */
+    public function urlInvalidParameter()
+    {
+        return array(
+            array('en', Enum\Game::STARCRAFT, array('test'), Enum\Locale::EN_GB),
+            array(Enum\Region::EUROPE, 'sc', array('test'), Enum\Locale::EN_GB),
+            array(Enum\Region::EUROPE, Enum\Game::STARCRAFT, array(), Enum\Locale::EN_GB),
+            array(Enum\Region::EUROPE, Enum\Game::STARCRAFT, array('test'), 'en_gb'),
         );
     }
 
