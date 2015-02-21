@@ -24,7 +24,13 @@ class UrlBuilder
         $this->checkIfInputDataIsValid($region, $game, $locale, $params);
         $urlPreparedParams = implode('/', $params);
 
-        $apiUrl = "{$port}://{$region}.api.battle.net/{$game}/{$method}/{$urlPreparedParams}/?locale={$locale}";
+        $apiUrl = "{$port}://{$region}.api.battle.net/{$game}/{$method}";
+
+        if (null !== $urlPreparedParams && count($params) > 0) {
+            $apiUrl .= "/{$urlPreparedParams}";
+        }
+
+        $apiUrl .= "?locale={$locale}";
 
         if (null !== $callback) {
             $apiUrl .= "&callback={$callback}";
@@ -78,10 +84,6 @@ class UrlBuilder
 
         if (!$this->getEnumValidator()->enumValueIsInArray($locale, Enum\Locale::getAllAsArray())) {
             throw new UrlBuilderException("Provided locale is not correct.");
-        }
-
-        if (0 === count($params)) {
-            throw new UrlBuilderException("Empty parameter list has been provided.");
         }
 
         if (!$this->getEnumValidator()->localeIsAssignedToCorrectRegion($region, $locale)) {

@@ -13,7 +13,10 @@ use BlizzardGalaxy\ApiSupervisor\Enum\ArrayEnumInterface;
  */
 class StarcraftApiMethod implements ArrayEnumInterface
 {
-    const PLAYER_PROFILE = 'profile';
+    const PLAYER = 'profile';
+    const LADDER = 'ladder';
+    const ACHIEVEMENTS = 'achievements';
+    const REWARDS = 'rewards';
 
     /**
      * Get all of the entries as an array.
@@ -23,7 +26,10 @@ class StarcraftApiMethod implements ArrayEnumInterface
     public static function getAllAsArray()
     {
         return [
-            self::PLAYER_PROFILE,
+            self::PLAYER,
+            self::LADDER,
+            self::ACHIEVEMENTS,
+            self::REWARDS,
         ];
     }
 }
