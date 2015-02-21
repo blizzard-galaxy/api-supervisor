@@ -10,7 +10,7 @@ namespace BlizzardGalaxy\ApiSupervisor\Enum;
  * @package BlizzardGalaxy\ApiSupervisor\Enum
  * @author  Petre Pătrașc <petre@dreamlabs.ro>
  */
-class Region
+class Region implements ArrayEnumInterface
 {
     const EUROPE = 'eu';
     const KOREA = 'kr';
@@ -23,13 +23,14 @@ class Region
      *
      * @return array
      */
-    public static function getAllRegionsAsArray() {
-        return array (
+    public static function getAllAsArray()
+    {
+        return array(
             self::EUROPE,
             self::KOREA,
             self::SOUTH_EAST_ASIA,
             self::TAIWAN,
-            self::UNITED_STATES
+            self::UNITED_STATES,
         );
     }
 }

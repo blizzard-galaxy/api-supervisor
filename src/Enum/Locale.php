@@ -10,14 +10,33 @@ namespace BlizzardGalaxy\ApiSupervisor\Enum;
  * @package BlizzardGalaxy\ApiSupervisor\Enum
  * @author  Petre Pătrașc <petre@dreamlabs.ro>
  */
-class Locale
+class Locale implements ArrayEnumInterface
 {
     const EN_GB = "en_GB";
     const DE_DE = "de_DE";
     const ES_ES = "es_ES";
     const FR_FR = "fr_FR";
     const IT_IT = "it_IT";
-    const pl_PL = "pl_PL";
-    const pt_PT = "pt_PT";
-    const ru_RU = "ru_RU";
+    const PL_PL = "pl_PL";
+    const PT_PT = "pt_PT";
+    const RU_RU = "ru_RU";
+
+    /**
+     * Get all of the entries as an array.
+     *
+     * @return array
+     */
+    public static function getAllAsArray()
+    {
+        return array(
+            self::EN_GB,
+            self::DE_DE,
+            self::ES_ES,
+            self::FR_FR,
+            self::IT_IT,
+            self::PL_PL,
+            self::PT_PT,
+            self::RU_RU,
+        );
+    }
 }

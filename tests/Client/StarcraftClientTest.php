@@ -1,17 +1,18 @@
 <?php
 
 
-namespace BlizzardGalaxy\ApiSupervisor\Test\Entity\Client;
+namespace BlizzardGalaxy\ApiSupervisor\Test\Client;
 
 
 use BlizzardGalaxy\ApiSupervisor\Client\StarcraftClient;
+use BlizzardGalaxy\ApiSupervisor\Enum\Locale;
 use BlizzardGalaxy\ApiSupervisor\Enum\Region;
 
 class StarcraftClientTest extends \PHPUnit_Framework_TestCase
 {
     public function testGetPlayerProfile()
     {
-        $apiKey = @file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . "config" . DIRECTORY_SEPARATOR . "apikey.lock");
+        $apiKey = @file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . "config" . DIRECTORY_SEPARATOR . "apikey.lock");
 
         if (false === $apiKey) {
             throw new \Exception("API key has not been defined for the tests - please add in /config/apikey.lock");
@@ -19,7 +20,7 @@ class StarcraftClientTest extends \PHPUnit_Framework_TestCase
 
         $apiKey = trim($apiKey);
 
-        $starcraftClient = new StarcraftClient($apiKey, Region::EUROPE);
+        $starcraftClient = new StarcraftClient($apiKey, Region::EUROPE, Locale::EN_GB);
         $starcraftClient->getPlayerProfile(2048419, "LionHeart");
     }
 }

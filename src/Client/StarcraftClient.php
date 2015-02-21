@@ -32,6 +32,14 @@ class StarcraftClient extends AbstractClient
         return Game::STARCRAFT;
     }
 
+    /**
+     * @param      $playerId
+     * @param      $playerName
+     * @param null $region
+     * @param null $locale
+     * @param null $callback
+     * @param int  $playerRegion
+     */
     public function getPlayerProfile($playerId, $playerName, $region = null, $locale = null, $callback = null, $playerRegion = 1)
     {
         $guzzleClient = new Client();
@@ -41,7 +49,5 @@ class StarcraftClient extends AbstractClient
 
         $content = $response->getBody()->getContents();
         $player = $this->getSerializer()->deserialize($content, 'BlizzardGalaxy\ApiSupervisor\Entity\Starcraft\Player', 'json');
-
-        var_dump($player);die;
     }
 }

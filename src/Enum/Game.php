@@ -10,8 +10,21 @@ namespace BlizzardGalaxy\ApiSupervisor\Enum;
  * @package BlizzardGalaxy\ApiSupervisor\Enum
  * @author  Petre Pătrașc <petre@dreamlabs.ro>
  */
-class Game
+class Game implements ArrayEnumInterface
 {
     const STARCRAFT = 'sc2';
     const WORLD_OF_WARCRAFT = 'wow';
+
+    /**
+     * Get all of the entries as an array.
+     *
+     * @return array
+     */
+    public static function getAllAsArray()
+    {
+        return array(
+            self::STARCRAFT,
+            self::WORLD_OF_WARCRAFT,
+        );
+    }
 }

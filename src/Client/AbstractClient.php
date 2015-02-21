@@ -18,17 +18,18 @@ use JMS\Serializer\Serializer;
  */
 abstract class AbstractClient
 {
-    public function __construct($apiKey, $region)
+    public function __construct($apiKey, $region, $locale)
     {
         $this
             ->setApiKey($apiKey)
-            ->setRegion($region);
+            ->setRegion($region)
+            ->setLocale($locale);
     }
 
     /**
      * @var string
      */
-    protected $locale = Locale::EN_GB;
+    protected $locale;
 
     /**
      * @var string
@@ -92,10 +93,6 @@ abstract class AbstractClient
      */
     public function setRegion($region)
     {
-        if (!in_array($region, Region::getAllRegionsAsArray())) {
-            throw new RegionException();
-        }
-
         $this->region = $region;
 
         return $this;
