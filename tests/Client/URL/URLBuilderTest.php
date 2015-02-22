@@ -1,17 +1,16 @@
 <?php
 
 
-namespace BlizzardGalaxy\ApiSupervisor\Test\Service;
+namespace BlizzardGalaxy\ApiSupervisor\Test\Client\URL;
 
 
+use BlizzardGalaxy\ApiSupervisor\Client\URL\URLBuilder;
 use BlizzardGalaxy\ApiSupervisor\Enum;
-use BlizzardGalaxy\ApiSupervisor\Exception\UrlBuilderException;
-use BlizzardGalaxy\ApiSupervisor\Service\UrlBuilder;
 
-class UrlBuilderTest extends \PHPUnit_Framework_TestCase
+class URLBuilderTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @var UrlBuilder
+     * @var URLBuilder
      */
     protected $urlBuilder;
 
@@ -40,7 +39,7 @@ class UrlBuilderTest extends \PHPUnit_Framework_TestCase
      * @param $params
      * @param $locale
      *
-     * @expectedException \BlizzardGalaxy\ApiSupervisor\Exception\UrlBuilderException
+     * @expectedException \BlizzardGalaxy\ApiSupervisor\Exception\URLBuilderException
      * @dataProvider urlInvalidParameter
      */
     public function testBuildWhenParametersAreInvalid($region, $game, $params, $locale)

@@ -3,8 +3,6 @@
 
 namespace BlizzardGalaxy\ApiSupervisor\Client;
 
-use BlizzardGalaxy\ApiSupervisor\Enum\Locale;
-use BlizzardGalaxy\ApiSupervisor\Enum\Region;
 use BlizzardGalaxy\ApiSupervisor\Exception\RegionException;
 use BlizzardGalaxy\ApiSupervisor\Service\DataSerializer;
 use JMS\Serializer\Serializer;

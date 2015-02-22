@@ -7,12 +7,12 @@ use BlizzardGalaxy\ApiSupervisor\Enum\Region;
 use BlizzardGalaxy\ApiSupervisor\Enum\Locale;
 
 /**
- * Class EnumValidator
+ * Validates if the region and locale rules have been correctly specified.
  *
  * @package BlizzardGalaxy\ApiSupervisor\Service
  * @author  Petre Pătrașc <petre@dreamlabs.ro>
  */
-class EnumValidator
+class RegionLocalValidator
 {
     /**
      * @param string $value

@@ -4,12 +4,12 @@
 namespace BlizzardGalaxy\ApiSupervisor\Exception;
 
 /**
- * Class UrlBuilderException
+ * Handles exceptions for the URL Builder.
  *
  * @package BlizzardGalaxy\ApiSupervisor\Exception
  * @author  Petre Pătrașc <petre@dreamlabs.ro>
  */
-class UrlBuilderException extends \Exception
+class URLBuilderException extends ApiSupervisorException
 {
     public function __construct($message = 'The URL builder caused an exception.')
     {

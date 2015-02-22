@@ -5,9 +5,6 @@ namespace BlizzardGalaxy\ApiSupervisor\Client;
 
 use BlizzardGalaxy\ApiSupervisor\Enum\Game;
 use GuzzleHttp\Client;
-use BlizzardGalaxy\ApiSupervisor\Enum\Region;
-use BlizzardGalaxy\ApiSupervisor\Exception\RegionException;
-
 
 /**
  * Contains methods and configuration for consuming
