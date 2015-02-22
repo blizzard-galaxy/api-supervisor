@@ -117,7 +117,6 @@ abstract class AbstractClient
      * @param string $region
      *
      * @return $this
-     * @throws RegionException
      */
     public function setRegion($region)
     {
