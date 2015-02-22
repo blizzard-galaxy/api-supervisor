@@ -39,7 +39,7 @@ class URLBuilder
      */
     public function build($region, $game, $method, $params, $apiKey, $locale, $callback, $protocol = 'https')
     {
-        $this->checkIfInputDataIsValid($region, $game, $locale, $params);
+        $this->checkIfInputDataIsValid($region, $game, $locale);
         $urlPreparedParams = implode('/', $params);
         $apiHost = self::API_HOST;
 
@@ -92,6 +92,7 @@ class URLBuilder
      * @param string $game
      * @param string $locale
      *
+     * @return bool
      * @throws \Exception
      */
     protected function checkIfInputDataIsValid($region, $game, $locale)
@@ -111,5 +112,7 @@ class URLBuilder
         if (!$this->getRegionLocaleValidator()->localeIsAssignedToCorrectRegion($region, $locale)) {
             throw new URLBuilderException("Locale is not assigned to this region");
         }
+
+        return true;
     }
 }
