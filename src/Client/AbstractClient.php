@@ -25,15 +25,6 @@ abstract class AbstractClient
             ->setApiKey($apiKey)
             ->setRegion($region)
             ->setLocale($locale);
-
-        $apiKeyFilePath = __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'apikey.lock';
-        $apiKey         = @file_get_contents($apiKeyFilePath);
-
-        if (false === $apiKey) {
-            throw new ApiSupervisorException('Could not load API key.');
-        }
-
-        $this->setApiKey($apiKey);
     }
 
     /**
