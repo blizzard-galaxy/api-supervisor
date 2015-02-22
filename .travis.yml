@@ -1,17 +1,16 @@
 language: php
-
 php:
-  - 5.4
-  - 5.5
-  - 5.6
-  - hhvm
-
+- 5.4
+- 5.5
+- 5.6
+- hhvm
 before_script:
-  - travis_retry composer self-update
-  - travis_retry composer install --no-interaction --prefer-source --dev
-
+- travis_retry composer self-update
+- travis_retry composer install --no-interaction --prefer-source --dev
 script:
-  - phpunit --coverage-text --coverage-clover=coverage.clover
-
+- phpunit --coverage-text --coverage-clover=coverage.clover
 after_script:
-  - php vendor/bin/ocular code-coverage:upload --format=php-clover coverage.clover
+- php vendor/bin/ocular code-coverage:upload --format=php-clover coverage.clover
+env:
+  global:
+    secure: Taj3kViOdF7bukl4h2oU8qSe2HZdQrH2KDl8gbzQuhMaWYO/KDDpu/NlDGPuqPlzVrbdSNT44AWSX9NVo192Wac3xNM4wH+lzgF7nj1ll/s3W+c0TBlvspBHTbdErYxqk+pHWov5uuRMYOPy14+4fh2o+2aJXFiypG/ZFlH63+8=
