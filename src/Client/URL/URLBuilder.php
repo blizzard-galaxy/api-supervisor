@@ -5,7 +5,7 @@ namespace BlizzardGalaxy\ApiSupervisor\Client\URL;
 
 use BlizzardGalaxy\ApiSupervisor\Enum;
 use BlizzardGalaxy\ApiSupervisor\Exception\URLBuilderException;
-use BlizzardGalaxy\ApiSupervisor\Service\RegionLocalValidator;
+use BlizzardGalaxy\ApiSupervisor\Service\RegionLocaleValidator;
 
 /**
  * Handles construction of URLs pointing to the Battle.NET API.
@@ -16,7 +16,7 @@ use BlizzardGalaxy\ApiSupervisor\Service\RegionLocalValidator;
 class URLBuilder
 {
     /**
-     * @var RegionLocalValidator
+     * @var RegionLocaleValidator
      */
     protected $regionLocaleValidator;
 
@@ -61,19 +61,19 @@ class URLBuilder
     }
 
     /**
-     * @return RegionLocalValidator
+     * @return RegionLocaleValidator
      */
     public function getRegionLocaleValidator()
     {
         if (null === $this->regionLocaleValidator) {
-            $this->setRegionLocaleValidator(new RegionLocalValidator());
+            $this->setRegionLocaleValidator(new RegionLocaleValidator());
         }
 
         return $this->regionLocaleValidator;
     }
 
     /**
-     * @param RegionLocalValidator $regionLocaleValidator
+     * @param RegionLocaleValidator $regionLocaleValidator
      *
      * @return $this
      */

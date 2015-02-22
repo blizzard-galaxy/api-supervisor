@@ -12,9 +12,11 @@ use BlizzardGalaxy\ApiSupervisor\Enum\Locale;
  * @package BlizzardGalaxy\ApiSupervisor\Service
  * @author  Petre Pătrașc <petre@dreamlabs.ro>
  */
-class RegionLocalValidator
+class RegionLocaleValidator
 {
     /**
+     * Check if an enum value is in an array.
+     *
      * @param string $value
      * @param array  $array
      *
