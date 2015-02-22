@@ -3,8 +3,11 @@
 
 namespace BlizzardGalaxy\ApiSupervisor\Client;
 
+use BlizzardGalaxy\ApiSupervisor\Client\URL\URLBuilder;
+use BlizzardGalaxy\ApiSupervisor\Exception\ApiSupervisorException;
 use BlizzardGalaxy\ApiSupervisor\Exception\RegionException;
 use BlizzardGalaxy\ApiSupervisor\Service\DataSerializer;
+use GuzzleHttp\Client;
 use JMS\Serializer\Serializer;
 
 /**
@@ -22,6 +25,15 @@ abstract class AbstractClient
             ->setApiKey($apiKey)
             ->setRegion($region)
             ->setLocale($locale);
+
+        $apiKeyFilePath = __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'apikey.lock';
+        $apiKey         = @file_get_contents($apiKeyFilePath);
+
+        if (false === $apiKey) {
+            throw new ApiSupervisorException('Could not load API key.');
+        }
+
+        $this->setApiKey($apiKey);
     }
 
     /**
@@ -45,6 +57,16 @@ abstract class AbstractClient
     protected $apiKey;
 
     /**
+     * @var Client
+     */
+    protected $guzzleClient;
+
+    /**
+     * @var URLBuilder
+     */
+    protected $urlBuilder;
+
+    /**
      * Get the short code associated to the game for URL
      * construction. (i.e. Starcraft II is sc2)
      *
@@ -54,6 +76,23 @@ abstract class AbstractClient
      * @return string
      */
     abstract public function getGameShortCode();
+
+    /**
+     * Make an API call to a Battle.NET endpoint.
+     *
+     * @param string $method
+     * @param array  $parameters
+     * @param null   $callback
+     *
+     * @return string
+     */
+    public function makeApiCall($method, $parameters = [], $callback = null)
+    {
+        $url      = $this->getUrlBuilder()->build($this->getRegion(), $this->getGameShortCode(), $method, $parameters, $this->getApiKey(), $this->getLocale(), $callback);
+        $response = $this->getGuzzleClient()->get($url);
+
+        return $response->getBody()->getContents();
+    }
 
     /**
      * @return string
@@ -122,6 +161,7 @@ abstract class AbstractClient
 
     /**
      * @return string
+     * @throws ApiSupervisorException
      */
     public function getApiKey()
     {
@@ -136,6 +176,54 @@ abstract class AbstractClient
     public function setApiKey($apiKey)
     {
         $this->apiKey = $apiKey;
+
+        return $this;
+    }
+
+    /**
+     * @return Client
+     */
+    public function getGuzzleClient()
+    {
+        if (null === $this->guzzleClient) {
+            $this->setGuzzleClient(new Client());
+        }
+
+        return $this->guzzleClient;
+    }
+
+    /**
+     * @param Client $guzzleClient
+     *
+     * @return $this
+     */
+    public function setGuzzleClient($guzzleClient)
+    {
+        $this->guzzleClient = $guzzleClient;
+
+        return $this;
+    }
+
+    /**
+     * @return URLBuilder
+     */
+    public function getUrlBuilder()
+    {
+        if (null === $this->urlBuilder) {
+            $this->setUrlBuilder(new URLBuilder());
+        }
+
+        return $this->urlBuilder;
+    }
+
+    /**
+     * @param URLBuilder $urlBuilder
+     *
+     * @return $this
+     */
+    public function setUrlBuilder($urlBuilder)
+    {
+        $this->urlBuilder = $urlBuilder;
 
         return $this;
     }

@@ -57,7 +57,7 @@ class URLBuilder
 
         $apiUrl .= "&apikey={$apiKey}";
 
-        return $apiUrl;
+        return trim($apiUrl);
     }
 
     /**

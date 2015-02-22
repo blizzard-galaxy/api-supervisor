@@ -4,6 +4,7 @@
 namespace BlizzardGalaxy\ApiSupervisor\Client;
 
 use BlizzardGalaxy\ApiSupervisor\Enum\Game;
+use BlizzardGalaxy\ApiSupervisor\Enum\Method\StarcraftApiMethod;
 use GuzzleHttp\Client;
 
 /**
@@ -30,21 +31,20 @@ class StarcraftClient extends AbstractClient
     }
 
     /**
-     * @param      $playerId
-     * @param      $playerName
-     * @param null $region
-     * @param null $locale
-     * @param null $callback
-     * @param int  $playerRegion
+     * Get the profile summary of a player.
+     *
+     * @param int    $playerId The ID of the player.
+     * @param string $playerName The name of the player.
+     * @param int    $playerRegion Don't really know how this is used, always seems to default to 1.
+     * @param null   $callback Callback method.
+     *
+     * @return mixed
      */
-    public function getPlayerProfile($playerId, $playerName, $region = null, $locale = null, $callback = null, $playerRegion = 1)
+    public function getPlayerProfile($playerId, $playerName, $playerRegion = 1, $callback = null)
     {
-        $guzzleClient = new Client();
+        $playerSummary = $this->makeApiCall(StarcraftApiMethod::PLAYER, [$playerId, $playerRegion, $playerName, null], $callback);
+        $player        = $this->getSerializer()->deserialize($playerSummary, 'BlizzardGalaxy\ApiSupervisor\Entity\Starcraft\Player', 'json');
 
-        $url = "https://{$this->getRegion()}.api.battle.net/sc2/profile/{$playerId}/{$playerRegion}/{$playerName}/?locale={$this->getLocale()}&apikey={$this->getApiKey()}";
-        $response = $guzzleClient->get($url);
-
-        $content = $response->getBody()->getContents();
-        $player = $this->getSerializer()->deserialize($content, 'BlizzardGalaxy\ApiSupervisor\Entity\Starcraft\Player', 'json');
+        return $player;
     }
 }
