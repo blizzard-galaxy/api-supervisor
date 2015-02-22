@@ -13,7 +13,15 @@ use BlizzardGalaxy\ApiSupervisor\Exception\ApiSupervisorException;
  */
 class FileSystemRegistryManager extends AbstractRegistryManager
 {
-    const CONFIG_FILE_PATH = __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR;
+    /**
+     * Return the filepath to the config folder.
+     *
+     * @return string
+     */
+    private function getConfigFilePath()
+    {
+        return __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR;
+    }
 
     /**
      * Retrieve the API key used to make calls
@@ -24,7 +32,7 @@ class FileSystemRegistryManager extends AbstractRegistryManager
      */
     public function getApiKey()
     {
-        $apiKey = @file_get_contents(self::CONFIG_FILE_PATH . 'apikey.lock');
+        $apiKey = @file_get_contents($this->getConfigFilePath() . 'apikey.lock');
 
         if (false === $apiKey) {
             throw new ApiSupervisorException('Could not load API key.');
