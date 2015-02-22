@@ -15,7 +15,8 @@ class FileSystemRegistryManagerTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->fileSystemRegistryManager = new FileSystemRegistryManager();
+        $configFilePath                  = __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'config';
+        $this->fileSystemRegistryManager = new FileSystemRegistryManager($configFilePath);
     }
 
     public function testGetApiKey()
@@ -27,16 +28,13 @@ class FileSystemRegistryManagerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \BlizzardGalaxy\ApiSupervisor\Exception\ApiSupervisorException
+     * @expectedException \League\Flysystem\FileNotFoundException
      */
     public function testGetApiKeyWhenInvalidConfigPath()
     {
-        $fileSystemMock =
-            $this->getMockBuilder('BlizzardGalaxy\ApiSupervisor\Registry\FileSystemRegistryManager')
-                ->setMethods(['getConfigFilePath'])
-                ->getMock();
-        $fileSystemMock->expects($this->atLeastOnce())->method('getConfigFilePath')->willReturn(__DIR__);
+        $fakePath                        = __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR;
+        $this->fileSystemRegistryManager = new FileSystemRegistryManager($fakePath);
 
-        $fileSystemMock->getApiKey();
+        $this->fileSystemRegistryManager->getApiKey();
     }
 }

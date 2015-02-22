@@ -4,6 +4,8 @@
 namespace BlizzardGalaxy\ApiSupervisor\Registry;
 
 use BlizzardGalaxy\ApiSupervisor\Exception\ApiSupervisorException;
+use League\Flysystem\Adapter\Local;
+use League\Flysystem\Filesystem;
 
 /**
  * Offers methods for easily reading in configuration values.
@@ -14,13 +16,13 @@ use BlizzardGalaxy\ApiSupervisor\Exception\ApiSupervisorException;
 class FileSystemRegistryManager extends AbstractRegistryManager
 {
     /**
-     * Return the filepath to the config folder.
-     *
-     * @return string
+     * @var Filesystem
      */
-    protected function getConfigFilePath()
+    protected $fileSystem;
+
+    public function __construct($configFilePath)
     {
-        return __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR;
+        $this->fileSystem = new Filesystem(new Local($configFilePath));
     }
 
     /**
@@ -32,12 +34,15 @@ class FileSystemRegistryManager extends AbstractRegistryManager
      */
     public function getApiKey()
     {
-        $apiKey = @file_get_contents($this->getConfigFilePath() . 'apikey.lock');
-
-        if (false === $apiKey) {
-            throw new ApiSupervisorException('Could not load API key.');
-        }
-
+        $apiKey = $this->getFileSystem()->read('apikey.lock');
         return trim($apiKey);
+    }
+
+    /**
+     * @return Filesystem
+     */
+    public function getFileSystem()
+    {
+        return $this->fileSystem;
     }
 }
