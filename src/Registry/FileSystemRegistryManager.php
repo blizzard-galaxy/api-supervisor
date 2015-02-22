@@ -18,7 +18,7 @@ class FileSystemRegistryManager extends AbstractRegistryManager
      *
      * @return string
      */
-    private function getConfigFilePath()
+    protected function getConfigFilePath()
     {
         return __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR;
     }
