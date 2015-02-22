@@ -4,7 +4,7 @@
 namespace BlizzardGalaxy\ApiSupervisor\Entity\Starcraft;
 
 use BlizzardGalaxy\ApiSupervisor\Entity\Starcraft\Achievement\PointSummary;
-use BlizzardGalaxy\ApiSupervisor\Test\Entity\ApiSupervisorEntityInterface;
+use BlizzardGalaxy\ApiSupervisor\Entity\ApiSupervisorEntityInterface;
 use JMS\Serializer\Annotation as JMS;
 
 /**

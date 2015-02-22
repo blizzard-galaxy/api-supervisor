@@ -1,6 +1,6 @@
 <?php
 
-namespace BlizzardGalaxy\ApiSupervisor\Test\Entity;
+namespace BlizzardGalaxy\ApiSupervisor\Entity;
 
 /**
  * Interface implemented by all the Supervisor Entities.

@@ -7,7 +7,7 @@ use BlizzardGalaxy\ApiSupervisor\Entity\Starcraft\Player\CareerSummary;
 use BlizzardGalaxy\ApiSupervisor\Entity\Starcraft\Player\Rewards;
 use BlizzardGalaxy\ApiSupervisor\Entity\Starcraft\Player\SeasonSummary;
 use BlizzardGalaxy\ApiSupervisor\Entity\Starcraft\Player\SwarmLevelSummary;
-use BlizzardGalaxy\ApiSupervisor\Test\Entity\ApiSupervisorEntityInterface;
+use BlizzardGalaxy\ApiSupervisor\Entity\ApiSupervisorEntityInterface;
 use JMS\Serializer\Annotation as JMS;
 
 /**
