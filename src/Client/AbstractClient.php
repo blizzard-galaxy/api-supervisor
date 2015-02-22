@@ -5,7 +5,6 @@ namespace BlizzardGalaxy\ApiSupervisor\Client;
 
 use BlizzardGalaxy\ApiSupervisor\Client\URL\URLBuilder;
 use BlizzardGalaxy\ApiSupervisor\Exception\ApiSupervisorException;
-use BlizzardGalaxy\ApiSupervisor\Exception\RegionException;
 use BlizzardGalaxy\ApiSupervisor\Service\DataSerializer;
 use GuzzleHttp\Client;
 use JMS\Serializer\Serializer;

@@ -5,7 +5,6 @@ namespace BlizzardGalaxy\ApiSupervisor\Client;
 
 use BlizzardGalaxy\ApiSupervisor\Enum\Game;
 use BlizzardGalaxy\ApiSupervisor\Enum\Method\StarcraftApiMethod;
-use GuzzleHttp\Client;
 
 /**
  * Contains methods and configuration for consuming
