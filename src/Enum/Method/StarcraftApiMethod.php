@@ -13,6 +13,6 @@ class StarcraftApiMethod
 {
     const PLAYER = 'profile';
     const LADDER = 'ladder';
-    const ACHIEVEMENTS = 'achievements';
-    const REWARDS = 'rewards';
+    const ACHIEVEMENTS = 'data/achievements';
+    const REWARDS = 'data/rewards';
 }

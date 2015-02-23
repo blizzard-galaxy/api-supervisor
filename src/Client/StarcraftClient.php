@@ -41,7 +41,7 @@ class StarcraftClient extends AbstractClient
      */
     public function getPlayerProfile($playerId, $playerName, $playerRegion = 1, $callback = null)
     {
-        $playerSummary = $this->makeApiCall(StarcraftApiMethod::PLAYER, [$playerId, $playerRegion, $playerName, null], $callback);
+        $playerSummary = $this->getApiResponse(StarcraftApiMethod::PLAYER, [$playerId, $playerRegion, $playerName, null], $callback);
         $player        = $this->getSerializer()->deserialize($playerSummary, 'BlizzardGalaxy\ApiSupervisor\Entity\Starcraft\Player', 'json');
 
         return $player;

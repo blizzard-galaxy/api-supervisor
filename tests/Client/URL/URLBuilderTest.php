@@ -65,8 +65,8 @@ class URLBuilderTest extends \PHPUnit_Framework_TestCase
             ['https://eu.api.battle.net/sc2/ladder/5000?locale=en_GB&apikey=testApiKey', Enum\Region::EUROPE, Enum\Game::STARCRAFT, Enum\Method\StarcraftApiMethod::LADDER, [5000], 'testApiKey', Enum\Locale::EN_GB, null],
             ['https://eu.api.battle.net/sc2/ladder/grandmaster?locale=en_GB&apikey=testApiKey', Enum\Region::EUROPE, Enum\Game::STARCRAFT, Enum\Method\StarcraftApiMethod::LADDER, ['grandmaster'], 'testApiKey', Enum\Locale::EN_GB, null],
             ['https://eu.api.battle.net/sc2/ladder/grandmaster/last?locale=en_GB&apikey=testApiKey', Enum\Region::EUROPE, Enum\Game::STARCRAFT, Enum\Method\StarcraftApiMethod::LADDER, ['grandmaster', 'last'], 'testApiKey', Enum\Locale::EN_GB, null],
-            ['https://eu.api.battle.net/sc2/achievements?locale=en_GB&apikey=testApiKey', Enum\Region::EUROPE, Enum\Game::STARCRAFT, Enum\Method\StarcraftApiMethod::ACHIEVEMENTS, [], 'testApiKey', Enum\Locale::EN_GB, null],
-            ['https://eu.api.battle.net/sc2/rewards?locale=en_GB&apikey=testApiKey', Enum\Region::EUROPE, Enum\Game::STARCRAFT, Enum\Method\StarcraftApiMethod::REWARDS, [], 'testApiKey', Enum\Locale::EN_GB, null],
+            ['https://eu.api.battle.net/sc2/data/achievements?locale=en_GB&apikey=testApiKey', Enum\Region::EUROPE, Enum\Game::STARCRAFT, Enum\Method\StarcraftApiMethod::ACHIEVEMENTS, [], 'testApiKey', Enum\Locale::EN_GB, null],
+            ['https://eu.api.battle.net/sc2/data/rewards?locale=en_GB&apikey=testApiKey', Enum\Region::EUROPE, Enum\Game::STARCRAFT, Enum\Method\StarcraftApiMethod::REWARDS, [], 'testApiKey', Enum\Locale::EN_GB, null],
         ];
     }
 

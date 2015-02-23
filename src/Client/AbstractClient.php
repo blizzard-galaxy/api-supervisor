@@ -68,20 +68,33 @@ abstract class AbstractClient
     abstract public function getGameShortCode();
 
     /**
-     * Make an API call to a Battle.NET endpoint.
+     * Get the response of an API call to a Battle.NET endpoint.
      *
      * @param string $method
      * @param array  $parameters
-     * @param null   $callback
+     * @param string $callback
      *
      * @return string
      */
-    public function makeApiCall($method, $parameters = [], $callback = null)
+    public function getApiResponse($method, $parameters = [], $callback = null)
+    {
+        $response = $this->makeApiCall($method, $parameters, $callback);
+        return $response->getBody()->getContents();
+    }
+
+    /**
+     * @param       $method
+     * @param array $parameters
+     * @param       $callback
+     *
+     * @return \GuzzleHttp\Message\FutureResponse|\GuzzleHttp\Message\ResponseInterface|\GuzzleHttp\Ring\Future\FutureInterface|null
+     */
+    public function makeApiCall($method, array $parameters, $callback = null)
     {
         $url      = $this->getUrlBuilder()->build($this->getRegion(), $this->getGameShortCode(), $method, $parameters, $this->getApiKey(), $this->getLocale(), $callback);
         $response = $this->getGuzzleClient()->get($url);
 
-        return $response->getBody()->getContents();
+        return $response;
     }
 
     /**

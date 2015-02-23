@@ -22,7 +22,7 @@ abstract class AbstractClientTest extends \PHPUnit_Framework_TestCase
      */
     public function getApiKey()
     {
-        $fileSystemRegistryManager = new FileSystemRegistryManager(TestParameter::CONFIG_FILEPATH);
+        $fileSystemRegistryManager = new FileSystemRegistryManager(TestParameter::getConfigFilePath());
         $apiKey                    = $fileSystemRegistryManager->getApiKey();
 
         return $apiKey;

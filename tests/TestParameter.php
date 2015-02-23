@@ -11,5 +11,8 @@ namespace BlizzardGalaxy\ApiSupervisor\Test;
  */
 class TestParameter
 {
-    const CONFIG_FILEPATH = __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'config';
+    public static function getConfigFilePath()
+    {
+        return __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'config';
+    }
 }
