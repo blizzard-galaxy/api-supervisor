@@ -30,7 +30,7 @@ class StarcraftClientTest extends AbstractClientTest
 
     /**
      * @param string $method
-     * @param array $parameters
+     * @param array  $parameters
      * @param string $callback
      *
      * @dataProvider apiMethodDataProvider
@@ -58,6 +58,16 @@ class StarcraftClientTest extends AbstractClientTest
             [StarcraftApiMethod::ACHIEVEMENTS, []],
             [StarcraftApiMethod::REWARDS, []],
         ];
+    }
+
+    /**
+     * @expectedException \BlizzardGalaxy\ApiSupervisor\Exception\ApiSupervisorException
+     * @expectedExceptionCode 403
+     */
+    public function testInvalidApiKey()
+    {
+        $this->starcraftClient->setApiKey('test');
+        $this->starcraftClient->makeApiCall(StarcraftApiMethod::PLAYER, [2048419, 1, 'LionHeart', null]);
     }
 
     public function testGetPlayerProfile()

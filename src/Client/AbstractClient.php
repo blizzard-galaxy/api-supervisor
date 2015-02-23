@@ -7,6 +7,7 @@ use BlizzardGalaxy\ApiSupervisor\Client\URL\URLBuilder;
 use BlizzardGalaxy\ApiSupervisor\Exception\ApiSupervisorException;
 use BlizzardGalaxy\ApiSupervisor\Service\DataSerializer;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ClientException;
 use JMS\Serializer\Serializer;
 
 /**
@@ -79,6 +80,7 @@ abstract class AbstractClient
     public function getApiResponse($method, $parameters = [], $callback = null)
     {
         $response = $this->makeApiCall($method, $parameters, $callback);
+
         return $response->getBody()->getContents();
     }
 
@@ -88,11 +90,16 @@ abstract class AbstractClient
      * @param       $callback
      *
      * @return \GuzzleHttp\Message\FutureResponse|\GuzzleHttp\Message\ResponseInterface|\GuzzleHttp\Ring\Future\FutureInterface|null
+     * @throws ApiSupervisorException
      */
     public function makeApiCall($method, array $parameters, $callback = null)
     {
-        $url      = $this->getUrlBuilder()->build($this->getRegion(), $this->getGameShortCode(), $method, $parameters, $this->getApiKey(), $this->getLocale(), $callback);
-        $response = $this->getGuzzleClient()->get($url);
+        try {
+            $url      = $this->getUrlBuilder()->build($this->getRegion(), $this->getGameShortCode(), $method, $parameters, $this->getApiKey(), $this->getLocale(), $callback);
+            $response = $this->getGuzzleClient()->get($url);
+        } catch (ClientException $exception) {
+            throw new ApiSupervisorException($exception->getMessage(), $exception->getCode());
+        }
 
         return $response;
     }

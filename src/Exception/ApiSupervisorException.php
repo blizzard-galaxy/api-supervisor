@@ -12,8 +12,8 @@ namespace BlizzardGalaxy\ApiSupervisor\Exception;
  */
 class ApiSupervisorException extends \Exception
 {
-    public function __construct($message = 'The API supervisor has triggered an exception.')
+    public function __construct($message = 'The API supervisor has triggered an exception.', $code = 0)
     {
-
+        parent::__construct($message, $code);
     }
 }
