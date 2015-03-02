@@ -23,6 +23,10 @@ $ composer require blizzard-galaxy/api-supervisor
 ``` php
 $starcraftClient = new StarcraftClient('YOUR_API_KEY', Region::EUROPE, Locale::EN_GB);
 $playerProfile = $starcraftClient->getPlayerProfile(2048419, 'LionHeart');
+
+$ladderSummary = $starcraftClient->getLadderSummaryById(7500);
+$ladderSummary = $starcraftClient->getLadderSummaryGrandmaster();
+$ladderSummary = $starcraftClient->getLadderSummaryGrandmasterLastSeason();
 ```
 
 ## Testing

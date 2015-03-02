@@ -24,7 +24,7 @@ class PlayerTest extends AbstractSerializationTest
      */
     protected function getMockFile()
     {
-        return 'starcraft/player.json';
+        return 'starcraft' . DIRECTORY_SEPARATOR . 'player.json';
     }
 
     /**
