@@ -1,0 +1,40 @@
+{
+  "ladderMembers": [
+    {
+      "character": {
+        "id": 202269,
+        "realm": 1,
+        "displayName": "BreZelPete",
+        "clanName": "eL Diablos Brigade",
+        "clanTag": "eLDB",
+        "profilePath": "/profile/202269/1/BreZelPete/"
+      },
+      "joinTimestamp": 1282154437,
+      "points": 1747.0,
+      "wins": 142,
+      "losses": 179,
+      "highestRank": 2,
+      "previousRank": 1,
+      "favoriteRaceP1": "PROTOSS",
+      "favoriteRaceP2": "ZERG"
+    },
+    {
+      "character": {
+        "id": 361299,
+        "realm": 1,
+        "displayName": "LzwoF",
+        "clanName": "eL Diablos Brigade",
+        "clanTag": "eLDB",
+        "profilePath": "/profile/361299/1/LzwoF/"
+      },
+      "joinTimestamp": 1282154437,
+      "points": 1747.0,
+      "wins": 142,
+      "losses": 179,
+      "highestRank": 2,
+      "previousRank": 1,
+      "favoriteRaceP1": "PROTOSS",
+      "favoriteRaceP2": "ZERG"
+    }
+  ]
+}
