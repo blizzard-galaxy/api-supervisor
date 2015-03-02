@@ -74,7 +74,31 @@ class StarcraftClientTest extends AbstractClientTest
     {
         $playerProfile = $this->starcraftClient->getPlayerProfile(2048419, 'LionHeart');
 
-        $this->assertNotNull($playerProfile, 'The data retrieved from the API was null.');
+        $this->assertNotNull($playerProfile, 'The player profile retrieved from the API was null.');
         $this->assertInstanceOf('BlizzardGalaxy\ApiSupervisor\Entity\Starcraft\Player', $playerProfile, 'The processed data does not match the expected format.');
+    }
+
+    public function testGetLadderSummaryById()
+    {
+        $ladderSummary = $this->starcraftClient->getLadderSummaryById(7500);
+
+        $this->assertNotNull($ladderSummary, 'The ladder retrieved from the API was null.');
+        $this->assertInstanceOf('BlizzardGalaxy\ApiSupervisor\Entity\Starcraft\Ladder\LadderSummary', $ladderSummary, 'The ladder summary data does not match the expected format.');
+    }
+
+    public function testGetLadderSummaryGrandmaster()
+    {
+        $ladderSummary = $this->starcraftClient->getLadderSummaryGrandmaster();
+
+        $this->assertNotNull($ladderSummary, 'The ladder retrieved from the API was null.');
+        $this->assertInstanceOf('BlizzardGalaxy\ApiSupervisor\Entity\Starcraft\Ladder\LadderSummary', $ladderSummary, 'The ladder summary data does not match the expected format.');
+    }
+
+    public function testGetLadderSummaryGrandmasterLastSeason()
+    {
+        $ladderSummary = $this->starcraftClient->getLadderSummaryGrandmasterLastSeason();
+
+        $this->assertNotNull($ladderSummary, 'The ladder retrieved from the API was null.');
+        $this->assertInstanceOf('BlizzardGalaxy\ApiSupervisor\Entity\Starcraft\Ladder\LadderSummary', $ladderSummary, 'The ladder summary data does not match the expected format.');
     }
 }

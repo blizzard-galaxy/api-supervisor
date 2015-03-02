@@ -15,11 +15,6 @@ use JMS\Serializer\Annotation as JMS;
 class LadderSummary implements ApiSupervisorEntityInterface
 {
     /**
-     * @var int
-     */
-    protected $id;
-
-    /**
      * @var LadderMember[]
      *
      * @JMS\SerializedName("ladderMembers")
